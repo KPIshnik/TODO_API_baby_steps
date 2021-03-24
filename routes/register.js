@@ -1,5 +1,4 @@
 const expres = require("express");
-const passport = require("../Auth/passport");
 const checkNOTAuth = require("../middlewares/checkNOTAuth");
 const registerUser = require("../controllers/registerUserr");
 const app = expres();
@@ -7,6 +6,7 @@ const app = expres();
 app.use(expres.json());
 
 app.get("/register", checkNOTAuth, (req, res) => {
+  res.status(200);
   res.end("register page");
 });
 

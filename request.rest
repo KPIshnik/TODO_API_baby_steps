@@ -11,12 +11,16 @@ Content-Type: application/json
 }
 
 ###
+DELETE http://localhost:3000/login
+
+
+###
 POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-"email": "u@u",
-"userName": "lu",
-"password": "123",
+"email": 1,
+"urName": "lu",
+"password": 123,
 "password2": "123"
 }
