@@ -5,11 +5,15 @@ const { HOST } = require("./configs/connectionConfig");
 const passport = require("./Auth/passport");
 const aloha = require("./routes");
 const login = require("./routes/login");
-
+const swaggerUi = require("swagger-ui-express");
+const swagger = require("./swagger.json");
 const register = require("./routes/register");
 const session_config = require("./configs/session_config");
 
 const app = express();
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swagger));
+//app.use('/api/v1', router);
 
 app.use(session(session_config));
 

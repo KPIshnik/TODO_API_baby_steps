@@ -6,14 +6,14 @@ const registerUser = async (req, res) => {
   const newUser = req.body;
   try {
     if (newUser.password != newUser.password2) {
-      res.end("pass does not match");
+      res.status(400).send("pass does not match");
       return;
     }
 
     const isRegistered = await checkIsRegistered(req.body.email);
 
     if (isRegistered) {
-      res.end("this email already registered, try anotherone");
+      res.status(400).send("this email already registered, try anotherone");
       return;
     }
 

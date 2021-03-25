@@ -7,7 +7,7 @@ const registerNewUser = async (username, hashedPass, email) => {
       "INSERT INTO users( email, username, password)  VALUES( $1,$2,$3)",
       [email, username, hashedPass]
     );
-    return "user registered";
+    return `user ${username} registered`;
   } catch (err) {
     console.log(err);
     throw err;

@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
 "email": "u@u",
-"password": "123"
+"password": "33"
 }
 
 ###
@@ -19,8 +19,8 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-"email": 1,
-"urName": "lu",
-"password": 123,
-"password2": "123"
+"email": "f@fd",
+"userName": "lulo",
+"password": "123",
+"password2": "1223"
 }

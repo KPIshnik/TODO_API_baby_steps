@@ -6,24 +6,16 @@ const app = expres();
 
 app.use(expres.json());
 
-app.get("/login", checkNOTAuth, (req, res) => {
-  res.status(200);
-  res.end("login page");
-});
-
-app.post(
-  "/login",
-  checkNOTAuth,
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
+app
+  .get("/login", checkNOTAuth, (req, res) => {
+    res.end("login page");
   })
-);
-
-app.delete("/login", checkIsAuth, (req, res) => {
-  req.logout();
-  res.status(200);
-  res.redirect("/login");
-});
+  .post("/login", checkNOTAuth, passport.authenticate("local"), (req, res) => {
+    res.redirect(200, "/");
+  })
+  .delete("/login", checkIsAuth, (req, res) => {
+    req.logout();
+    res.redirect(200, "/login");
+  });
 
 module.exports = app;
